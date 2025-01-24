@@ -1,13 +1,20 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+
+  // * ~~~~~~~~~~~~~~~~~~~~~~~~~ Ver Publicaciones ~~~~~~~~~~~~~~~~~~~~~~~~~ */
   {
-    path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+    path: 'ver-publicaciones',
+    loadComponent: () => import('./ver-publicaciones/ver-publicaciones.page').then((m) => m.VerPublicaciones),
+  },
+  // * ~~~~~~~~~~~~~~~~~~~~~~~~ Crear Publicaciones ~~~~~~~~~~~~~~~~~~~~~~~~ */
+  {
+    path: 'crear-publicaciones',
+    loadComponent: () => import('./crear-publicaciones/crear-publicaciones.page').then((m) => m.CrearPublicaciones),
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'ver-publicaciones',
     pathMatch: 'full',
   },
 ];
