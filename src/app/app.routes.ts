@@ -5,12 +5,12 @@ export const routes: Routes = [
   // * ~~~~~~~~~~~~~~~~~~~~~~~~~ Ver Publicaciones ~~~~~~~~~~~~~~~~~~~~~~~~~ */
   {
     path: 'ver-publicaciones',
-    loadComponent: () => import('./ver-publicaciones/ver-publicaciones.page').then((m) => m.VerPublicaciones),
+    loadComponent: () => import('./pages/ver-publicaciones/ver-publicaciones.page').then((m) => m.VerPublicaciones),
   },
   // * ~~~~~~~~~~~~~~~~~~~~~~~~ Crear Publicaciones ~~~~~~~~~~~~~~~~~~~~~~~~ */
   {
     path: 'crear-publicaciones',
-    loadComponent: () => import('./crear-publicaciones/crear-publicaciones.page').then((m) => m.CrearPublicaciones),
+    loadComponent: () => import('./pages/crear-publicaciones/crear-publicaciones.page').then((m) => m.CrearPublicaciones),
   },
   {
     path: '',
