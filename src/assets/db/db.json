@@ -1,0 +1,33 @@
+{
+    "database": "data.db",
+    "version": 1,
+    "encrypted": false,
+    "mode": "full",
+    "tables": [
+        {
+            "name": "publicaciones",
+            "schema": [
+                {
+                    "column": "id",
+                    "value": "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT"
+                },
+                {
+                    "column": "titulo",
+                    "value": "TEXT NOT NULL"
+                },
+                {
+                    "column": "descripcion",
+                    "value": "TEXT NOT NULL"
+                },
+                {
+                    "column": "fecha",
+                    "value": "DATETIME NOT NULL"
+                },
+                {
+                    "column": "imagen",
+                    "value": "TEXT NOT NULL"
+                }
+            ]
+        }
+    ]
+}
