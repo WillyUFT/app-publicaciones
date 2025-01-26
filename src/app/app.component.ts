@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
+import { setToastController } from './Util/toast-service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +9,9 @@ import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
   imports: [IonApp, IonRouterOutlet],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(
+    private readonly toastController: ToastController
+  ) {
+    setToastController(this.toastController);
+  }
 }

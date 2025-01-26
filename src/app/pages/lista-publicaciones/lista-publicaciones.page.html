@@ -1,0 +1,71 @@
+<!-- ! ======================= VER PUBLICACIONES ======================== -->
+
+<!-- * ----------------------------- Header ----------------------------- -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de publicaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- * --------------------------- Contenido ---------------------------- -->
+<ion-content>
+
+  <!-- & Comenzamos la lista -->
+  <ion-list *ngIf="publicaciones.length > 0">
+
+    <!-- & Iteamos sobre la lista de publicaciones -->
+    <ion-item *ngFor="let publicacion of publicaciones">
+
+      <!-- & Hacemos una grilla para que quede toro -->
+      <ion-grid>
+
+        <!-- & Las row soportan 12 columnas, así dividiremos el contenido
+        & En partes iguales (3 columnas cada uno). -->
+        <ion-row style="align-items: center;">
+
+          <!-- ^ Columna de la imagen -->
+          <ion-col size="3">
+            <img src={{publicacion.imagen}} style="height: 5rem; width: 5rem;" alt="Publicación">
+          </ion-col>
+
+          <!-- ^ Columna del título -->
+          <ion-col size="7">
+            <h4>
+              <strong>
+                {{publicacion.titulo}}
+              </strong>
+            </h4>
+            <p>
+              {{publicacion.fecha | fecha}}
+            </p>
+          </ion-col>
+
+          <!-- ^ Botón para eliminar -->
+          <ion-col size="2">
+            <ion-button color="primary" style="width: 60%; height: 60%;" (click)="abrirModalVerEliminar(publicacion)">
+              <ion-icon name="eye" style="color: white;"></ion-icon>
+            </ion-button>
+          </ion-col>
+
+        </ion-row>
+
+      </ion-grid>
+    </ion-item>
+
+  </ion-list>
+
+  <!-- & Botón para agregar nueva publicación -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" [routerLink]="['/crear-publicaciones']">
+    <ion-fab-button color="primary">
+      <ion-icon name="add-outline" style="color: white;"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- & Botón oculto para abrir el modal -->
+  <ion-button id="open-modal" style="display: none;"></ion-button>
+
+  <!-- & Componente del modal con evento -->
+  <app-ver-publicacion-modal [publicacion]="publicacionSeleccionada" (publicacionEliminada)="eliminarYRecargar()">
+  </app-ver-publicacion-modal>
+
+</ion-content>

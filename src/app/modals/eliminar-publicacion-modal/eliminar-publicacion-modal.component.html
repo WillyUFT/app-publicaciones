@@ -1,0 +1,75 @@
+<!-- ! =================== DETALLES DE LA PUBLICACIÓN =================== -->
+<ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+  <ng-template>
+
+    <!-- * ----------------------------- Header ----------------------------- -->
+    <ion-header>
+      <ion-toolbar>
+
+        <!-- * Botón de volver atrás -->
+        <ion-buttons slot="start">
+          <ion-button (click)="volver()">Volver</ion-button>
+        </ion-buttons>
+
+        <!-- * Título -->
+        <ion-title>
+          Detalles de la publicación
+        </ion-title>
+
+        <!-- * Botón de borrar -->
+        <ion-buttons slot="end">
+          <ion-button (click)="confirmar()" color="danger">Eliminar</ion-button>
+        </ion-buttons>
+
+      </ion-toolbar>
+    </ion-header>
+
+    <!-- * --------------------------- Contenido ---------------------------- -->
+    <ion-content class="ion-padding" *ngIf="publicacion != null">
+
+      <!-- & Mostrar título -->
+      <ion-row style="align-items: center;">
+
+        <ion-col size="auto">
+          <h3>
+            {{publicacion.titulo}}
+          </h3>
+        </ion-col>
+
+      </ion-row>
+
+      <!-- & Mostrar la foto -->
+      <ion-row style="align-items: center;">
+
+        <ion-col size="auto">
+          <img src="{{publicacion.imagen}}" alt="Foto de la publicación">
+        </ion-col>
+
+      </ion-row>
+
+      <!-- & Mostrar fecha -->
+      <ion-row style="align-items: center; justify-content: end;">
+
+        <ion-col size="6" style="text-align: end;">
+          <small>
+            {{publicacion.fecha | fecha}}
+          </small>
+        </ion-col>
+
+      </ion-row>
+
+      <!-- & Mostrar fecha -->
+      <ion-row style="align-items: center;">
+
+        <ion-col size="auto">
+          <p>
+            {{publicacion.descripcion}}
+          </p>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-content>
+
+  </ng-template>
+</ion-modal>
